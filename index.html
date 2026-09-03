@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Settings</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Account Settings</h1>
+      <p class="lede">Update your profile, password, and notification preferences.</p>
+
+      <div id="form-success" class="success" hidden role="status" aria-live="polite"></div>
+
+      <form id="account-settings-form" novalidate>
+        <div class="field">
+          <label for="display-name">Display name</label>
+          <input
+            id="display-name"
+            name="displayName"
+            type="text"
+            autocomplete="name"
+            maxlength="80"
+            required
+            aria-required="true"
+          />
+          <p id="display-name-error" class="field-error" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            maxlength="254"
+            required
+            aria-required="true"
+          />
+          <p id="email-error" class="field-error" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label for="new-password">New password</label>
+          <input
+            id="new-password"
+            name="newPassword"
+            type="password"
+            autocomplete="new-password"
+          />
+          <p id="new-password-hint" class="hint">
+            Optional. If you set a password, use at least 8 characters with a letter and a number.
+          </p>
+          <p id="new-password-error" class="field-error" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label for="confirm-password">Confirm password</label>
+          <input
+            id="confirm-password"
+            name="confirmPassword"
+            type="password"
+            autocomplete="new-password"
+          />
+          <p id="confirm-password-error" class="field-error" role="alert"></p>
+        </div>
+
+        <fieldset class="notifications">
+          <legend>Notification preferences</legend>
+          <div class="choice">
+            <input id="notify-email" name="notifyEmail" type="checkbox" />
+            <label for="notify-email">Email notifications</label>
+          </div>
+          <div class="choice">
+            <input id="notify-sms" name="notifySms" type="checkbox" />
+            <label for="notify-sms">SMS notifications</label>
+          </div>
+        </fieldset>
+
+        <button type="submit" id="save-settings">Save settings</button>
+      </form>
+    </main>
+
+    <script type="module" src="settings-form.js"></script>
+  </body>
+</html>
